@@ -1,8 +1,10 @@
 # asterisk-medias
 pchero's media file repository for the Asterisk test.
 
-# filename
+# filename structure
+```
 <filename>-<stereotype>_<sampling bit>_<bit rate>_<codec>.<extension>
+```
 
 ## example
 broken_short-mono_32bit_16khz_amr.amr
