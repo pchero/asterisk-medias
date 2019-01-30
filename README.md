@@ -1,6 +1,17 @@
-# asterisk_wavs
+# asterisk-medias
+pchero's media file repository for the Asterisk test.
 
-pchero's wav repository for the Asterisk test.
+# filename
+<filename>-<stereotype>_<sampling bit>_<bit rate>_<codec>.<extension>
+
+## example
+broken_short-mono_32bit_16khz_amr.amr
+
+filename: brkoen_short
+stereo type: mono
+sampling bit: 32bit
+bit rate: 16khz
+codec: amr
 
 # note
 ## ARI /play support codec
