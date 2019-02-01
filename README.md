@@ -9,11 +9,11 @@ pchero's media file repository for the Asterisk test.
 ## example
 broken_short-mono_32bit_16khz_amr.amr
 
-filename: brkoen_short
-stereo type: mono
-sampling bit: 32bit
-bit rate: 16khz
-codec: amr
+* `filename`: brkoen_short
+* `stereo type`: mono
+* `sampling bit`: 32bit
+* `bit rate`: 16khz
+* `codec`: amr
 
 # note
 ## ARI /play support codec
