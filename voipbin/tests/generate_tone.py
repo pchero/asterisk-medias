@@ -53,7 +53,7 @@ def write_tone(path, duration_sec):
 def main():
     parser = argparse.ArgumentParser(description="Generate the 1000 Hz recording test tones.")
     parser.add_argument("--output-dir", default=os.path.dirname(os.path.abspath(__file__)),
-                        help="directory to write the WAV into (default: next to this script)")
+                        help="directory to write the WAV files into (default: next to this script)")
     args = parser.parse_args()
 
     os.makedirs(args.output_dir, exist_ok=True)
