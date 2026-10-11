@@ -44,6 +44,7 @@ def main():
         value = int(round(AMPLITUDE * gain * math.sin(2 * math.pi * FREQUENCY_HZ * i / SAMPLE_RATE)))
         frames += struct.pack("<h", value)
 
+    os.makedirs(args.output_dir, exist_ok=True)
     path = os.path.join(args.output_dir, FILENAME)
     with wave.open(path, "wb") as w:
         w.setnchannels(1)
