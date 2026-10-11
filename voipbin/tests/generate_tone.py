@@ -8,10 +8,11 @@ Output: tone_1000hz_5s-mono_16bit_8khz_pcm.wav
   - amplitude 12000 (about -8.7 dBFS), 20 ms linear fade in/out
 
 Deterministic: stdlib only, no randomness. Re-run to reproduce the file
-byte for byte:
+byte for byte (written next to this script unless --output-dir is given):
 
-    python3 generate_tone.py
+    python3 generate_tone.py [--output-dir DIR]
 """
+import argparse
 import math
 import os
 import struct
@@ -26,6 +27,11 @@ FILENAME = "tone_1000hz_5s-mono_16bit_8khz_pcm.wav"
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Generate the 1000 Hz recording test tone.")
+    parser.add_argument("--output-dir", default=os.path.dirname(os.path.abspath(__file__)),
+                        help="directory to write the WAV into (default: next to this script)")
+    args = parser.parse_args()
+
     total = int(SAMPLE_RATE * DURATION_SEC)
     fade = int(SAMPLE_RATE * FADE_SEC)
     frames = bytearray()
@@ -38,7 +44,7 @@ def main():
         value = int(round(AMPLITUDE * gain * math.sin(2 * math.pi * FREQUENCY_HZ * i / SAMPLE_RATE)))
         frames += struct.pack("<h", value)
 
-    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), FILENAME)
+    path = os.path.join(args.output_dir, FILENAME)
     with wave.open(path, "wb") as w:
         w.setnchannels(1)
         w.setsampwidth(2)
